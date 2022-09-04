@@ -7,15 +7,15 @@ let package = Package(
 		.macOS(.v12),
 	],
 	dependencies: [
-	    .package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0")
-        ],
+		.package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0"),
+	],
 	targets: [
-		.target(
-			name: "main",
+		.executableTarget(
+			name: "NIOTFTPClient",
 			dependencies: [
-			    .product(name: "NIOCore", package: "swift-nio"),
-                            .product(name: "NIOPosix", package: "swift-nio"),
-                        ],
+				.product(name: "NIOCore", package: "swift-nio"),
+				.product(name: "NIOPosix", package: "swift-nio"),
+			],
 			swiftSettings: [
 				// Enable better optimizations when building in Release configuration. Despite the use of
 				// the `.unsafeFlags` construct required by SwiftPM, this flag is recommended for Release
@@ -23,6 +23,5 @@ let package = Package(
 				.unsafeFlags(["-cross-module-optimization"], .when(configuration: .release)),
 			]
 		),
-		.executableTarget(name: "main", dependencies: []),
 	]
 )
