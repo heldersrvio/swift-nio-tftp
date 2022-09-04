@@ -1,0 +1,9 @@
+--allman false
+--indent tab
+--wraparguments before-first
+--wrapparameters before-first
+--wrapcollections before-first
+--header strip
+--self init-only
+--semicolons never
+--enable isEmpty
